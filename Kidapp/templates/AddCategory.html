@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+{% extends 'index.html' %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="card" >
+                <div class="card-body" style="width:1200px">
+                  <h4 class="card-title">Basic form elements</h4>
+                  <p class="card-description">
+                    Basic form elements
+                  </p>
+                  <form class="forms-sample" method="POST" action="{% url 'SaveCategories' %}" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="form-group">
+                      <label for="exampleInputName1">Category Name</label>
+                      <input type="text" class="form-control" id="exampleInputName1" placeholder="Name" name="Cname">
+                    </div>
+
+                    <div class="mb-3">
+                                <label for="formFileMultiple" class="form-label">Upload profile image</label>
+                                <input class="form-control bg-dark" type="file" id="formFileMultiple" multiple="" name="image">
+                            </div>
+
+<!--                    <div class="form-group">-->
+<!--                      <label>Category Image</label>-->
+<!--                      <input type="file" name="img[]" class="file-upload-default">-->
+<!--                      <div class="input-group col-xs-12">-->
+<!--                        <input type="text" class="form-control file-upload-info" disabled="" placeholder="Upload Image" name="image">-->
+<!--                        <span class="input-group-append">-->
+<!--                          <button class="file-upload-browse btn btn-primary" type="file">Upload</button>-->
+<!--                        </span>-->
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="exampleTextarea1">Description</label>
+                      <textarea class="form-control" id="exampleTextarea1" rows="4"  name="Description" ></textarea>
+                    </div>
+                    <div><br><br><br><br><br><br><br>
+                    <button type="submit" class="btn btn-primary mr-2" >Submit</button>
+                    <button class="btn btn-light">Cancel</button>
+                        </div>
+                  </form>
+                </div>
+              </div>
+</body>
+</html>
+{% endblock %}

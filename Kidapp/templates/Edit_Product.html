@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+{% extends 'index.html' %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="card" >
+                <div class="card-body" style="width:1200px">
+                  <h4 class="card-title">Products</h4>
+                  <p class="card-description">
+                    Basic form elements
+                  </p>
+                  <form class="forms-sample" method="POST" action="{% url 'Update_Product' P_id=dataa.id %}" enctype="multipart/form-data">
+                    {% csrf_token %}
+                      <div class="form-group">
+                    <label>Please Select a Category</label>
+                    <select class="js-example-basic-single w-100 select2-hidden-accessible" tabindex="-1" aria-hidden="true" name="Cname" >
+                      <option selected="">{{dataa.Product_Category}}</option>
+                      {% for i in cat %}
+                      <option>{{dataa.Product_Category}}</option>
+                      {% endfor %}
+<!--                      <option value="AM">America</option>-->
+<!--                      <option value="CA">Canada</option>-->
+<!--                      <option value="RU">Russia</option>-->
+                    </select>
+                  </div>
+                    <div class="form-group">
+                      <label for="exampleInputName1">Product Name</label>
+                      <input type="text" class="form-control"  placeholder="Product Name" name="Pname" value="{{dataa.Product_Name}}">
+                    </div>
+                      <div class="form-group">
+                      <label for="exampleInputName1">Quantity</label>
+                      <input type="text" class="form-control"  placeholder="Quantity" name="Quantity" value="{{dataa.Quantity}}">
+                    </div>
+                      <div class="form-group">
+                      <label for="exampleInputName1">Price</label>
+                      <input type="text" class="form-control"  placeholder="Price" name="Price" value="{{dataa.MRP}}">
+                    </div>
+                      <div class="form-group">
+                      <label for="exampleTextarea1">Description</label>
+                      <textarea class="form-control" id="exampleTextarea1" rows="4" name="Description">{{dataa.Description}}</textarea>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="exampleInputName1">Country of origin</label>
+                      <input type="text" class="form-control" id="exampleInputName1" placeholder="origin" name="Country" value="{{dataa.Country}}">
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputName1">Manufactured By</label>
+                      <input type="text" class="form-control" id="exampleInputName1" placeholder="Manufacture" name="Manufacture" value="{{dataa.Manufactured}}">
+                    </div>
+
+                    <div class="mb-3">
+                                <label for="formFileMultiple" class="form-label">Upload profile image</label>
+                        <img src ="{{dataa.Image1.url}}" width="100px" height="100px">
+                                <input class="form-control bg-dark" type="file" id="formFileMultiple" multiple="" name="image1" value="{{dataa.Image1}}">
+                            </div>
+                     <div class="mb-3">
+                                <label for="formFileMultiple" class="form-label">Upload profile image</label>
+                         <img src ="{{dataa.Image2.url}}" width="100px" height="100px">
+                                <input class="form-control bg-dark" type="file" id="formFileMultiple" multiple="" name="image2" value="{{dataa.Image2}}">
+                            </div>
+                     <div class="mb-3">
+                                <label for="formFileMultiple" class="form-label">Upload profile image</label>
+                         <img src ="{{dataa.Image3.url}}" width="100px" height="100px">
+                                <input class="form-control bg-dark" type="file" id="formFileMultiple" multiple="" name="image3" value="{{dataa.Image3}}">
+                            </div>
+
+<!--                    <div class="form-group">-->
+<!--                      <label>Category Image</label>-->
+<!--                      <input type="file" name="img[]" class="file-upload-default">-->
+<!--                      <div class="input-group col-xs-12">-->
+<!--                        <input type="text" class="form-control file-upload-info" disabled="" placeholder="Upload Image" name="image">-->
+<!--                        <span class="input-group-append">-->
+<!--                          <button class="file-upload-browse btn btn-primary" type="file">Upload</button>-->
+<!--                        </span>-->
+<!--                      </div>-->
+<!--                    </div>-->
+
+
+                    <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                    <button class="btn btn-light">Cancel</button>
+                  </form>
+                </div>
+              </div>
+</body>
+</html>
+{% endblock %}

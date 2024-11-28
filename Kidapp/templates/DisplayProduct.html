@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+{% extends 'index.html' %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="col-lg-12 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Basic Table</h4>
+                  <p class="card-description">
+                    Add class <code>.table</code>
+                  </p>
+                  <div class="table-responsive">
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th>Category</th>
+                          <th>Product</th>
+                          <th>Quantity</th>
+                          <th>Price</th>
+                            <th>Description</th>
+                          <th>Country</th>
+                          <th>Manufactured By</th>
+                          <th>Image1</th>
+                            <th>Image2</th>
+                            <th>Image3</th>
+                            <th>Action</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                       {% for i in datas %}
+                        <tr>
+                          <td>{{i.Product_Category}}</td>
+                          <td>{{i.Product_Name}}</td>
+                          <td>{{i.Quantity}}</td>
+                          <td>{{i.MRP}}</td>
+                          <td>{{i.Description}}</td>
+                          <td>{{i.Country}}</td>
+                          <td>{{i.Manufactured}}</td>
+                         <td> <img src="{{i.Image1.url}}" width="70px" height="70px"></td>
+                          <td> <img src="{{i.Image2.url}}" width="70px" height="70px"></td>
+                          <td> <img src="{{i.Image3.url}}" width="70px" height="70px"></td>
+                             <td><a class="badge badge-success" href="{% url 'Edit_Product' dat_id=i.id %}">Edit</a></td>
+                          <td><a class="badge badge-success" href="{% url 'Delete_Product' pro_id=i.id %}">Delete</a></td>
+
+
+                        </tr>
+                       {% endfor %}
+<!--                        <tr>-->
+<!--                          <td>Messsy</td>-->
+<!--                          <td>53275532</td>-->
+<!--                          <td>15 May 2017</td>-->
+<!--                          <td><label class="badge badge-warning">In progress</label></td>-->
+<!--                        </tr>-->
+<!--                        <tr>-->
+<!--                          <td>John</td>-->
+<!--                          <td>53275533</td>-->
+<!--                          <td>14 May 2017</td>-->
+<!--                          <td><label class="badge badge-info">Fixed</label></td>-->
+<!--                        </tr>-->
+<!--                        <tr>-->
+<!--                          <td>Peter</td>-->
+<!--                          <td>53275534</td>-->
+<!--                          <td>16 May 2017</td>-->
+<!--                          <td><label class="badge badge-success">Completed</label></td>-->
+<!--                        </tr>-->
+<!--                        <tr>-->
+<!--                          <td>Dave</td>-->
+<!--                          <td>53275535</td>-->
+<!--                          <td>20 May 2017</td>-->
+<!--                          <td><label class="badge badge-warning">In progress</label></td>-->
+<!--                        </tr>-->
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+</body>
+</html>
+{% endblock %}

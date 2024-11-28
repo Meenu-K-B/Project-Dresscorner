@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+<div style="text-align:center;background-image:url('/static/Web/images/payment1.1.png');height:900px;" >
+
+    <form>
+        <div>
+
+    <h1>Proceed to Payment</h1>
+    <h3>{{customer.Name}}</h3>
+            <img src="{% static 'Web/images/payment1.2.jpg' %}"  width="150px" height="150px"><br><br>
+            <button style="color:White;background-color:black;height:45px">Make Payment</button>
+        </div>
+    </form>
+</div>
+<script src="https://checkout.razorpay.com/v1/checkout.js"
+    data-key="rzp_test_jRkTOp2nyDmNrX"
+    data-amount="{{pay_str}}"
+    data-currency="INR"
+    data-order_id="{{payment.order_id}}"
+    data-buttontext=""
+    data-name="Dresscorner"
+    data-description="Your description"
+    data-image=""
+    data-prefill.name="abc"
+    data-prefill.email="abc@gmail.com"
+    data-theme.color="#4badeb"
+>
+
+</script>
+
+</body>
+</html>
